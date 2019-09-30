@@ -1,0 +1,24 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}{section.1}
+\contentsline {section}{\numberline {2}Tratamiento de datos}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Atributos}{2}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Atributos para ayudar a localizar o identificar la instancia de entrenamiento}{3}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Atributos relacionados con la intermediateReward}{3}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Atributos relacionados con la matriz de observaci\IeC {\'o}n (mergeObs)}{3}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Atributos booleanos o binarios}{4}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.5}Otros atributos}{4}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.6}Acci\IeC {\'o}n realizada}{5}{subsubsection.2.1.6}
+\contentsline {subsubsection}{\numberline {2.1.7}Refuerzo}{5}{subsubsection.2.1.7}
+\contentsline {subsection}{\numberline {2.2}Toma de ejemplos}{5}{subsection.2.2}
+\contentsline {section}{\numberline {3}Identificaci\IeC {\'o}n de situaciones}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Borrado de atributos}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}K-medias}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Intenficaci\IeC {\'o}n de centroide en un Tick}{7}{subsection.3.3}
+\contentsline {section}{\numberline {4}Q-Learning}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Aprendizaje de la pol\IeC {\'\i }tica de comportamiento}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Selecci\IeC {\'o}n de la acci\IeC {\'o}n final}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Tabla Q}{9}{subsection.4.3}
+\contentsline {section}{\numberline {5}Evaluaci\IeC {\'o}n}{9}{section.5}
+\contentsline {section}{\numberline {6}Descripci\IeC {\'o}n del material entregado}{9}{section.6}
+\contentsline {section}{\numberline {7}Conclusiones}{11}{section.7}
+\contentsline {section}{\numberline {8}Comentarios personales}{12}{section.8}

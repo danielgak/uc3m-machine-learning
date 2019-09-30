@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Ejercicio 1: KnowledgeFlow}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Ejecutar el flujo de conocimiento. Para ello ejecutar la opci\363n Start loading del nodo Arff Loader. Seleccionar la opci\363n Show Results en los nodos TextViewer.a\) \277Qu\351 se muestra en cada uno de ellos?}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{b\) \277Cu\341l es el porcentaje de instancias clasificadas correctamente?}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Guardar el diagrama de flujo en formato .kfml como e1-suppliedtestset.kfml. c\) \277Cu\341l es la utilidad de crear flujos de conocimiento con esta interfaz de Weka?}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Ejercicio 2: Experimenter}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{a\) \277Hay alg\372n agente que parezca m\341s adecuado?}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{b\) \277Hay alg\372n conjunto de datos particular que parezca m\341s adecuado?}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{c\) \277Qu\351 algoritmo parece m\341s adecuado?}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{d\) \277Son los resultados del mejor algoritmo mucho mejores que los del resto?}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.5}{e\) Cambiar el criterio de comparaci\363n y comparar los resultados. \277Los resultados guardan relaci\363n con los proporcionados en Percent\137correct? \277Qu\351 otra m\351trica hab\351is seleccionado? \277Por qu\351?}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.6}{f\) Generar con el Explorer de Weka los modelos que te parezcan m\341s adecuados con los datos que correspondan. \277Cuales hab\351is generado? \277Son estos modelos tan adecuados como parec\355an? \277Por qu\351?}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.7}{g\) Elegir un modelo final y justificar la respuesta.}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.8}{h\) \277Por qu\351 o para qu\351 os parece adecuado el uso del Experimenter de Weka?}{section.2}% 13

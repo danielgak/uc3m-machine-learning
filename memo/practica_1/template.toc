@@ -1,0 +1,26 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}{section.1}
+\contentsline {section}{\numberline {2}Recogida de informaci\IeC {\'o}n}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Atributos seleccionados}{2}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Atributos relacionados con la instancia del entrenamiento}{2}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Atributos relacionados con la recompensa de mario}{2}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Atributos relacionados con la matriz de observaci\IeC {\'o}n}{3}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Atributos booleanos o atributos binarios}{4}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.5}Otros atributos}{4}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.6}Atributo a clasificar}{4}{subsubsection.2.1.6}
+\contentsline {section}{\numberline {3}Clasificaci\IeC {\'o}n}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Algoritmos seleccionados}{5}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}J48}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Ramdom Tree}{5}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}Random Forest}{5}{subsubsection.3.1.3}
+\contentsline {subsection}{\numberline {3.2}Preporcesado realizado}{5}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Borrado de atributos}{5}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Combinaci\IeC {\'o}n de datos de entrenamiento}{6}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Balance de instancias}{6}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Borrado de clases}{6}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}Otros preprocesados}{6}{subsubsection.3.2.5}
+\contentsline {subsection}{\numberline {3.3}An\IeC {\'a}lisis}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Conclusi\IeC {\'o}n}{10}{subsection.3.4}
+\contentsline {section}{\numberline {4}Regresi\IeC {\'o}n}{11}{section.4}
+\contentsline {section}{\numberline {5}Implementaci\IeC {\'o}n}{12}{section.5}
+\contentsline {section}{\numberline {6}Opiniones Personales}{12}{section.6}

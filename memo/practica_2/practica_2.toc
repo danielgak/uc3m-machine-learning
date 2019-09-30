@@ -1,0 +1,22 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}{section.1}
+\contentsline {section}{\numberline {2}Tratamiento de datos}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Toma de ejemplos}{2}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Estrategia de selecci\IeC {\'o}n de instancias}{2}{subsubsection.2.1.1}
+\contentsline {subsection}{\numberline {2.2}Atributos}{3}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Atributos para ayudar a localizar o identificar la instancia de entrenamiento}{3}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Atributos relacionados con la intermediateReward}{3}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Atributos relacionados con la matriz de observaci\IeC {\'o}n (mergeObs)}{3}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}Atributos booleanos o binarios}{4}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.5}Otros atributos}{5}{subsubsection.2.2.5}
+\contentsline {subsection}{\numberline {2.3}Preprocesado}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Carga de datos en memoria}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Situaciones identificadas}{6}{subsection.2.5}
+\contentsline {section}{\numberline {3}Funciones}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Funci\IeC {\'o}n de pertenencia}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Funci\IeC {\'o}n de similitud}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Funci\IeC {\'o}n de evaluaci\IeC {\'o}n}{8}{subsection.3.3}
+\contentsline {section}{\numberline {4}Evaluaci\IeC {\'o}n}{9}{section.4}
+\contentsline {section}{\numberline {5}Descripci\IeC {\'o}n del material entregado}{13}{section.5}
+\contentsline {section}{\numberline {6}Conclusiones}{13}{section.6}
+\contentsline {section}{\numberline {7}Comentarios personales}{14}{section.7}

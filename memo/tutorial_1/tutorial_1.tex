@@ -1,0 +1,199 @@
+\documentclass[10pt, spanish, pdftex]{../.memo/plantilla_memorias}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla de estilos para memorias de prácticas UC3M
+%			Universidad Carlos III de Madrid
+% Autor: Aitor Alonso Núñez
+% Última actualización: 14 de Noviembre de 2016
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Preámbulo %%%%%
+\usepackage{fancyhdr}		% Permite añadir encabezado y pie de página
+\usepackage{graphicx}		% Permite añadir imágenes
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lipsum}
+\usepackage[hidelinks]{hyperref}	% Ahora los elemento del índice actúan como enlaces, también se permite enlaces a internet
+\usepackage{nameref}				% Permite añadir etiquetas \label{nombre} a las que referenciar con \nameref{intro}
+\author{Aitor Alonso Núñez}
+
+
+%%%%% Co-autores y NIA %%%%%
+%%%%% Dejar corchetes {} en blanco si es necesario
+%%%%% Si el número de coautores está entre 3 y 4 usar estas opciones, en caso contrario comentarlas
+%\coautoresNumCuatrotrue
+%\coautoresCuatro{Compañero1 Apellido}{NIA 100XXXXXX}{Compañero2 Apellido}{NIA 100XXXXXX}{Compañero3 Apellido}{NIA 100XXXXXX}{Compañero4 Apellido}{NIA 100XXXXXX}
+
+%%%%% Si el número de coautores está entre 0 y 2 usar estas opciones, en caso contrario comentarlas
+% Dejar corchetes {} en blanco si es necesario
+\coautoresNumCuatrofalse
+\coautoresDos{Daneil Gak Anagrov}{NIA 100318133}{Gr. 83}
+
+%%%%% Añadir dirección de email en la portada (solo válido para ti y un compañero) %%%%%
+\correofalse
+%\correotrue
+%\emails{100346169alumnos.uc3m.es}{correo}
+
+%%%%% Datos básicos (titulación, asignatura, título del documento) %%%%%
+\datos{Grado en Ingeniería Informática}{Aprendizaje Automático}{Mario AI\\Tutorial 1}
+
+%%%%% Encabezado %%%%%
+\header
+
+%%%%% Pie de Página %%%%%
+\footer
+\pagestyle{fancy}
+
+\begin{document}
+%%%%% Portada %%%%%
+\titleMain
+
+%%%%% Índice %%%%%<z
+\tableofcontents 	% Añadimos índice
+\newpage 			% Después del índice, le indicamos iniciar en una página nueva
+
+%%%%% CONTENIDO DEL DOCUMENTO %%%%%
+\section{Puesta en marcha}
+\subsection{¿Qué elementos se distinguen en interfaz gráfica del juego?}
+\p{En la esquina superior izquierda podemos visualizar la siguiente información:}
+\begin{itemize}
+    \item \textbf{Difficulty:} la dificultad del nivel o escenario.
+    \item \textbf{Seed:} la semilla utilizada para generar el nivel o escenario
+    \item \textbf{Type:} tipo (actualmente desconocemos a qué se refiere) % TODO
+    \item \textbf{Lenght:} posición en el eje X de Mario
+    \item \textbf{Height:} posición en el eje Y de Mario
+    \item \textbf{Icono moneda:} número de monedas recogidas por Mario
+    \item \textbf{Icono champiñón:} número de champiñones recogidos por Mario
+    \item \textbf{Icono flor:} número de flores recogidas por Mario
+    \item \textbf{Pressed keys:} teclas que están siendo pulsadas en teclado (se indican a la derecha del texto)
+\end{itemize}
+\p{En la esquina superior derecha encontramos:}
+\begin{itemize}
+    \item \textbf{All kills:} número de muertes de enemigos
+    \item \textbf{By fire:} número de muertes de enemigos causadas por fuego
+    \item \textbf{By shell:} número de muertes de enemigos causadas por caparazones
+    \item \textbf{By stomp:} número de muertes de enemigos causadas por pisotones
+    \item \textbf{Time:} tiempo restante (en segundos) para completar el nivel
+    \item \textbf{FPS:} fotogramas por segundo de la interfaz
+\end{itemize}
+\p{Por último, en la parte inferior de la pantalla encontramos \textbf{intermediate reward}, es decir, la recompensa media que actualmente
+posee el agente. también podemos ver una escala que indica la posición de Mario con una M respecto al inicio y el final del nivel.}
+
+\subsection{¿Qué cambios se producen al usar los distintos argumentos y atajos de teclado del Anexo 1?}
+\p{Tras probar todos los argumentos que aparecen en el Anexo 1:}
+\begin{itemize}
+    \item \textbf{nombre\_agente:} indica qué aregnte se debe cargar en la ejecución. Hemos probado los dos que se mencionan en el Anexo 1:
+    \begin{itemize}
+        \item \textbf{human.HumanAgent:} es un agente controlado por teclado por un humano
+        \item \textbf{BaselineAgent:} es una agente de IA muy básico. Ejecuta acciones aleatorias con tendencia a moverse hacia la derecha.
+    \end{itemize}
+    \item \textbf{-ls [número]:} permite introducir manualmente las semilla (seed) que se utiliza para generar el nivel
+    \item \textbf{-ld [número]:} permite introducir manualmente la dificultad (difficulty) el nivel
+    \item \textbf{-fps [número]:} permite introducir manualmente el número de fotogramas por segundo
+    \item \textbf{-vis off:} ejecuta el agente sin interfaz gráfica, lo que es mucho más rápido
+    \item \textbf{-i on:} convierte a Mario en invencible
+    \item \textbf{-lg off:} evita que se generen niveles con pozos
+    \item \textbf{-le [tipo\_enemigo]:} el nivel generado solo tendrá enemigos del tipo indicado en tipo\_enemigo
+\end{itemize}
+\p{En cuanto a los atajos de teclado, con las flechas, la tecla A y la tecla S podemos controlar a Mario. Al pulsarlas aparecerán
+indicadas junto a la sección \textit{Pressed Keys} que indicamos en la pregunta anterior. El resto de teclas modifican la información
+que se muestra en la interfaz o la forma en que se muestra de la siguiente manera:}
+\begin{itemize}
+    \item \textbf{Tecla Z:} aumenta el tamaño de la ventana para facilitar la visualzación de la interfaz.
+    \item \textbf{Tecla 8:} elimina el límite de fotogramas por segundo.
+    \item \textbf{Tecla G:} muestra una matriz alrededor de Mario que a su vez muestra valores para los enemigos
+                            y elementos que caen dentro, así como para Mario.
+    \item \textbf{Tecla L:} muestra etiquetas sobre todos los elementos (y en la esquina inferior izquierda de la pantalla) con
+                            información más exacta de las coordenadas X e Y de cada elemento visible en la interfaz. Estas coordenadas
+                            no se corresponden con las mostradas en el apartado \textit{Height} y \textit{Lenght} de la esquina superior
+                            izquierda de la interfaz.
+    \item \textbf{Tecla C:} mantiene el foco sobre Mario en el centro de la interfaz, independientemente de su posición y sus acciones.
+    \item \textbf{Tecla F:} permite a Mario ignorar la gravedad y ``volar'' por el mapa. Se controla arriba, abajo, izquierda, derecha
+                            con las flechas del teclado.
+\end{itemize}
+
+\section{Explorando la información disponible}
+\subsection{¿Qué es un tick de juego?}
+\p{La variable \texttt{tick} es un atributo del objeto agente representado mediante una variable entera que inicialmente
+vale cero y se actualiza en +1 cada vez que se ejecuta el método \texttt{integrateObservation()}. Puesto que este método
+se ejecuta en cada instante de tiempo para obtener información del entorno, podemos concluir que un \textit{tick} de juego
+representa el mínimo instante de tiempo en el juego.}
+
+\subsection{¿Para qué le sirven al agente los métodos \texttt{getAction()}, \texttt{integrateObservation()} y el parámetro \texttt{environment}?}
+\p{El método \texttt{getAction()} devuelve un array de seis posiciones booleanas que indica las acciones (teclas pulsadas)
+llevadas a cabo por el agente.}
+\p{El método \texttt{integrateObservation()} permite al agente, como ya indicamos en la pergunta anterior, obtener
+información del entorno en cada tick.}
+\p{El parámetro \texttt{environment} es un objeto de tipo \texttt{Environment} que es recibido por el método
+\texttt{integrate} \texttt{Observation()}. Este objeto posee atributos y métodos que permiten extraer información
+sobre el entorno (estoy icnluye Mario, enemigos, estadísticas, etc), por lo que es necesario para el correcto
+funcionamiento de este método.}
+
+\subsection{¿Qué información contienen las matrices devueltas por los métodos \texttt{getLevelSceneObservationZ()},
+\texttt{getEnemiesObservationZ()} y \texttt{getMergedObservationZZ()}?}
+\p{La matriz devuelta por el método \texttt{getLevelSceneObservationZ()} tiene tamaño 19x19 y contiene información
+sobre los elementos en la escena del nivel. Se puede elegir entre tres niveles distintos de detalle.}
+\p{La matriz devuelta por el método \texttt{getEnemiesObservationZ()} tiene también tamaño 19x19 y contiene información
+sobre los enemigos en la escena del nivel. Al igual que en el caso anterior, se puede elegir entre tres niveles distintos de detalle.}
+\p{La matriz devuelta por el método \texttt{getEnemiesObservationZ()} tiene asimismo tamaño 19x19 y contiene información
+combinada de las dos matrices devueltas por los métodos anteriores. También permite filtrar entre tres niveles distintos de detalle.}}
+
+\subsection{¿Cuál es la posición que ocupa Mario en estas matrices?}
+\p{Mario siempre ocupa la posición 9,9 en estas matrices de domensión 19x19. Es decir, está situado en el centro de las mismas.}
+
+\subsection{A las funciones indicadas en los puntos anteriores se les puede pasar un parámetro para indicar el nivel
+de detalle de la información devuelta (consultar Anexo 2). ¿Qué implica cambiar el nivel de detalle?}
+\p{Como ya hemos indicado, permite filtrar mucho más la información contenida en las matrices devueltas por estos métodos.
+Existen tres posibles niveles de filtrado. 0,1,2 que solicitan mayor (0) o menor (2) detalle de la información recuperada.}
+
+\subsection{¿Cuál es el número que codifica las monedas, los obstáculos y los enemigos en el nivel de detalle 1?}
+\p{En el nivel de detalle 1, las monedas esán codificadas con el valor 2, los obstáculos con -60 o -62 según su tipo,
+y los enemigos con valor 80.}
+
+\section{Creando el fichero de entrenamiento}
+\p{Para la creación de los ejemplos de entrenamiento hemos definido la clase \texttt{TrainingFile.java}, que hemos situado en
+\texttt{ch.idsia.tools}. Esta clase tiene su constructor preparado para también poder leer el fichero con los ejemplos de
+entrenamiento,ya que es lógico que estamos guardando ejemplos de entrenamiento en un fichero para leerlos posteriormente y
+aprender de ellos, pero sin embargo de momento solo está implementada la lógica para obtener y escribir los ejemplos.}
+\p{En los ficheros de los nuevos agentes \texttt{T1HumanAgent.java} y \texttt{T1BotAgent.java} hemos añadido un nuevo atributo
+objeto de tipo \texttt{TrainingFile}, y para el almacenamiento de los ejemplos en el fichero ejecutamos el método \texttt{writeExample()}
+sobre este objeto en cada llamada al método \texttt{integrateObservation()}.}
+\p{El contenido de nuestro fichero de ejemplos de entrenamiento contiene, en este orden y para cada tick (en cada línea):}
+\begin{itemize}
+    \item 1. Monedas recogidas hace 5 ticks
+    \item 2. Muertes de enemigos hace 5 ticks
+    \item 3. Distancia (posición X celdas)
+    \item 4. Distancia (posición X física)
+    \item 5. Flores recogidas
+    \item 6. Muertes de enemigos por fuego
+    \item 7. Muertes de enemigos por caparazón
+    \item 8. Muertes de enemigos por pisotón
+    \item 9. Muertes de enemigos totales
+    \item 10. Modo de Mario
+    \item 11. Estado de Mario
+    \item 12. Champiñones recogidos
+    \item 13. Monedas recogidas
+    \item 14. Tiempo restante
+    \item 15. Tiempo gastado
+    \item 16. Bloques ocultos encontrados
+    \item 17-378. Valores de getMergedObservationZZ(0, 0) (19x19 valores al máximo nivel de detalle)
+\end{itemize}
+
+\section{Programación de un agente procedural simple}
+\p{El comportamiento de este agente procedural simple, definido en la clase \texttt{T1BotAgent.java}, se fundamenta en avanzar hacia
+la derecha y saltar cuadno tiene un enemigo u obstáculo cerca. Esto se ha conseguido modificando el contenido de los métodos
+\texttt{integrateObservation()} y \texttt{getAction()} de la siguiente forma.}
+\p{En el método \texttt{integrateObservation()} se ha extraído, para cada \textit{tick}, la información necesaria tanto del entorno
+como del propio Mario para decidir qué acciones llevar a cabo. Esto es únicamente cuándo saltar, cuándo mantener el salto y cuándo dejar
+de saltar; ya que la acción de moverse hacia la derecha es constante. En el proceso se utilizan variables declaradas como \texttt{protected}
+dentro de la clase \texttt{BasicMarioAIAgent.java}, por lo que \textbf{es necesario} la existencia de esta clase en el mismo paquete,
+la cual \textbf{ya venía proporcionada} y \textbf{no} hemos modificado.}
+\p{Los cambios en el método \texttt{getAction()} son, aunque más numerosos, igual de fáciles de comprender puesto que el código está
+completamente comentado. Como hemos indicado, marcamos constantemente que Mario se mueva hacia la derecha, manteniendo siempre activada
+la tecla correspondiente. Ahora, en caso de que el salto esté permitido, comprobamos si tenemos un obstáculo cerca, en cuyo caso
+procedemos a activar la tecla de salto.}
+\p{Si por el contrario el salto está bloqueado, lo más probable es que se deba a que o bien estamos en el aire saltando todavía, o bien
+ya estamos en tierra pero no hemos desactivado la tecla de salto desde que la pulsamos al comienzo del salto. Para diferenciar estos casos,
+comprobamos si hemos sobrepasado ya el obstáculo, o si estamos ya en tierra, momento en el que desactivamos la tecla de salto y así nos
+preparamos para el próximo salto que debamos dar.}
+\end{document}

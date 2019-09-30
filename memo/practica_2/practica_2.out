@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.2}{Tratamiento de datos}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Toma de ejemplos}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Estrategia de selecci\363n de instancias}{subsection.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Atributos}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Atributos para ayudar a localizar o identificar la instancia de entrenamiento}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Atributos relacionados con la intermediateReward}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Atributos relacionados con la matriz de observaci\363n \(mergeObs\)}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Atributos booleanos o binarios}{subsection.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.5}{Otros atributos}{subsection.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{Preprocesado}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.4}{Carga de datos en memoria}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.5}{Situaciones identificadas}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{Funciones}{}% 14
+\BOOKMARK [2][-]{subsection.3.1}{Funci\363n de pertenencia}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.2}{Funci\363n de similitud}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.3}{Funci\363n de evaluaci\363n}{section.3}% 17
+\BOOKMARK [1][-]{section.4}{Evaluaci\363n}{}% 18
+\BOOKMARK [1][-]{section.5}{Descripci\363n del material entregado}{}% 19
+\BOOKMARK [1][-]{section.6}{Conclusiones}{}% 20
+\BOOKMARK [1][-]{section.7}{Comentarios personales}{}% 21

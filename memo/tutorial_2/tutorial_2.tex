@@ -1,0 +1,307 @@
+\documentclass[10pt, spanish, pdftex]{../.memo/plantilla_memorias}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla de estilos para memorias de prácticas UC3M
+%			Universidad Carlos III de Madrid
+% Autor: Aitor Alonso Núñez
+% Última actualización: 14 de Noviembre de 2016
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Preámbulo %%%%%
+\usepackage{fancyhdr}		% Permite añadir encabezado y pie de página
+\usepackage{graphicx}		% Permite añadir imágenes
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lipsum}
+\usepackage[hidelinks]{hyperref}	% Ahora los elemento del índice actúan como enlaces, también se permite enlaces a internet
+\usepackage{nameref}				% Permite añadir etiquetas \label{nombre} a las que referenciar con \nameref{intro}
+\author{Aitor Alonso Núñez}
+
+
+%%%%% Co-autores y NIA %%%%%
+%%%%% Dejar corchetes {} en blanco si es necesario
+%%%%% Si el número de coautores está entre 3 y 4 usar estas opciones, en caso contrario comentarlas
+%\coautoresNumCuatrotrue
+%\coautoresCuatro{Compañero1 Apellido}{NIA 100XXXXXX}{Compañero2 Apellido}{NIA 100XXXXXX}{Compañero3 Apellido}{NIA 100XXXXXX}{Compañero4 Apellido}{NIA 100XXXXXX}
+
+%%%%% Si el número de coautores está entre 0 y 2 usar estas opciones, en caso contrario comentarlas
+% Dejar corchetes {} en blanco si es necesario
+\coautoresNumCuatrofalse
+\coautoresDos{Daniel Gak Anagrov}{NIA 100318133}{Gr. 83}
+
+%%%%% Añadir dirección de email en la portada (solo válido para ti y un compañero) %%%%%
+\correofalse
+%\correotrue
+%\emails{100346169alumnos.uc3m.es}{correo}
+
+%%%%% Datos básicos (titulación, asignatura, título del documento) %%%%%
+\datos{Grado en Ingeniería Informática}{Aprendizaje Automático}{Mario AI: Tutorial 2\\Introducción a Weka}
+
+%%%%% Encabezado %%%%%
+\header
+
+%%%%% Pie de Página %%%%%
+\footer
+\pagestyle{fancy}
+
+\begin{document}
+%%%%% Portada %%%%%
+\titleMain
+
+%%%%% Índice %%%%%<z
+\tableofcontents 	% Añadimos índice
+\newpage 			% Después del índice, le indicamos iniciar en una página nueva
+
+%%%%% CONTENIDO DEL DOCUMENTO %%%%%
+\section{Los ficheros de datos}
+\subsection{¿Cuántos atributos de entrada tiene el fichero de datos? ¿De qué tipo son?}
+	\p{El fichero tiene dos atributos de tipo simbólico, pero solo el primero (\textit{name}) es \textbf{atributo de entrada.}}
+\subsection{¿Podría un algoritmo de aprendizaje automático identificar una función capaz de predecir dicha clase con los
+datos que hay en el fichero? ¿Por qué?}
+	\p{ Sí, en el caso de que se usaran redes de neuronas, habría que adaptar la variable de entrada a una variable numérica (preferiblemente normalizada), y debido a que un perceprón multicapa es un aproximador universal, obtenedremos una función que predice la clase de una variable de entrada en todos los casos. No obstante, el error de la función que predice la clase dependerá de que los datos de entrenamiento son representativos o no, pues en caso de no serlo, signifcaría que la clase con la que se clasifica tiene poca relación con la variable de entrada, por tanto, se obtendrá una función que se adapte a estos datos de entrenamiento, pero que no será capaz de predecir datos nuevos.}
+
+\section{Clasificando con ID3}
+\subsection{En la pestaña Classify, seleccionar el clasificador trees/ID3 1 . En las Test options seleccionar Use training set
+y pulsar el botón de Start para que se genere el modelo. ¿Cómo de buenos son los resultados?}
+	\p{El clasificador ID3 es capaz de clasificar correctamente el 100\% de las instancias. Muy probablemente nos hayamos sobreajustado
+	a los datos de ejemplo.}
+
+\section{Incompatibilidades de clasificadores}
+\subsection{Imagina 4 atributos que te parezca que podrían ser relevantes para este problema. Estos atributos inventados
+se deberían poder extraer tratando de alguna manera el único atributo de entrada del ejercicio anterior
+(name). Anótalos y describe en qué consiste cada uno.}
+	\p{A partir del nombre de los sujetos podríamos extraer los siguientes atributos:}
+	\begin{itemize}
+		\item \textbf{N\_palabras:} número de palabras del nombre del sujeto.
+		\item \textbf{N\_espacions:} número de espacios del nombre del sujeto.
+		\item \textbf{N\_vocales:} número de vocales del nombre del sujeto.
+		\item \textbf{N\_consonantes:} número de consonantes del nombre del sujeto.
+	\end{itemize}
+\subsection{Abre el fichero de datos badges1.arff con Weka. ¿Cuántos atributos de entrada tiene el fichero de datos?
+¿De qué tipo son?}
+	\p{Tiene ocho atributos de entrada de un total de nueve atributos. En cuanto a los \textbf{atributos de entrada} tres son de
+	tipo simbólico (\textit{name, even\_odd, first\_char\_vowel}) y los otros cinco (\textit{length, consonants, spaces, dots, words})
+	son de tipo numérico.}
+\subsection{¿Qué tipo de información estadística se muestra sobre los atributos?}
+	\p{En la esquina inferior derecha de la interfaz de weka observamos distintos diagramas de barras que clasifican de forma visual
+	los atributos de entrada en conjuntos para aquellos que son simbólicos y en rangos para los atributos numéricos.}
+\subsection{Pulsa el botón “Visualize All” ¿Qué se muestra?}
+	\p{Se abre una ventana emergente con los diagramas asociados a cada atributo, para una vista rápida y poder comparar a ojo las
+	distribuciones.}
+\subsection{Ejecutar el clasificador tree/ID3 sobre estos datos. ¿Qué es lo que ocurre? ¿Qué se podría hacer para evitar
+este problema con ID3?}
+	\p{No es posible ejecutar el clasificador ID3 sobre estos datos. El motivo es puesto que el algoritmo ID3 ramifica para cada
+	posible valor del atributo de entrada, es imposible ramificar sobre valores continuos (atributos de tipo numérico) ya que los
+	posibles valores que pueden tomar son infinitos. La única solución para evitar este problema pasa por dividir los valores
+	numéricos en subconjuntos acotados.\\Por ejemplo: 0 $\leq$ X $\leq$ 10, X $\in$ [A, B, C].}
+
+\section{Solucionando incompatibilidades de atributos}
+\subsection{Seleccionar el filtro Filter/unsupervised/attribute/Discretize, fijar el numero de bins a 5 y aplicar al conjunto
+de datos. ¿Qué efecto tiene este filtro sobre los atributos?}
+	\p{Se han discretizado los valores numéricos. Es decir, tal y como indicamos en el apartado anterior, se han dividido en
+	subconjuntos acotados y ahora sería posible aplicar ID3 sobre nuestros ejemplos.}
+\subsection{En la pestaña Classifiers elige ID3 y marca Use training set en las Test options. Vuelve a generar el clasificador.
+¿Qué número de instancias del conjunto de entrenamiento clasifica bien? ¿Qué porcentaje clasifica bien?}
+	\p{Clasfica bien 236 instancias, que se corresponde con un 80.27\% del total.}
+\subsection{¿Qué significa cada uno de los valores que aparecen en la matriz de confusión?}
+	\p{En la matriz de confusión hemos obtenido los siguientes valores:}
+	\begin{table}[h]
+		\centering
+		\renewcommand{\tablename}{Tabla}
+		\caption{Matriz de confusión ID3}
+		\begin{tabular}{|c|c|l|}
+			\hline
+			a  & b   & \textless-- classified as \\ \hline
+			93 & 51  & a = - \\ \hline
+			7  & 143 & b = + \\ \hline
+		\end{tabular}
+	\end{table}
+	\p{Los datos que podemos obtener de esta tabla son los siguientes. Existen un total de $93+51=144$ instancias de clase
+	\textit{a}, que se corresponde con la clase definida como ``-'', de las cuales 93 han sido clasificadas correctamente y
+	las 51 restantes de manera errónea. De la misma forma podemos observar que existen un total de $7+143=150$ instancias
+	de clase \textit{b}, definidas como ``+'', con 143 clasificadas correctamente y 7 de forma errónea.}
+	\p{La suma de las instancias clasificadas correctamente da un total de $93+143=236$ instancias, las mismas que indicamos
+	en la pregunta anterior.}
+\subsection{Pulsar el botón de More Options y seleccionar la opción Output Predictions (PlainText). Volver a clasificar y
+revisar los resultados. ¿Cuál es la primera instancia del conjunto de entrenamiento que se clasifica mal? ¿Qué
+atributos exactamente han causado que esta instancia se haya clasificado mal?}
+	\p{La primera instancia que se clasifica mal es la número 7, pues es de clase ``-'' y se ha predecido clase ``+'' para la misma.
+	Esta instancia se corresponde con ``Andrey Burago''. El que el nombre tenga un solo espacio ha derivado en un subárbol en el
+	que todos los nodos hojas indicaban clase ``+'' para el valor instancia.}
+\subsection{¿Cómo se clasificaría la instancia ``Carmen Machi''? ¿Cuáles son los atributos de este nombre? ¿Qué ocurre
+con los valores de esta instancia si utilizas el filtro usado anteriormente?}
+	\p{El nombre ``Carmen Machi'' tiene los siguientes valores:}
+	\begin{itemize}
+		\item \textbf{length:} 12
+		\item \textbf{even\_odd:} 0
+		\item \textbf{first\_char\_vowel:} 0
+		\item \textbf{consonants:} 7
+		\item \textbf{spaces:} 1
+		\item \textbf{dots:} 0
+		\item \textbf{words:} 2
+	\end{itemize}
+	\p{Lo que produce la clasificación:\\\textit{length = '(10.6-14.2]' $\rightarrow$ consonants = '(5.6-8.2]' $\rightarrow$
+	dots = '(-inf-0.4]' $\rightarrow$ even\_odd = 0 $\rightarrow$ spaces = '(-inf-1.4]' $\rightarrow$ first\_char\_vowel = 0
+	$\rightarrow$ ``+''}.\\Es decir, la instancia ``Carmen Machi'' quedaría clasificada como clase ``+''.}
+
+\section{Comparando con ZeroR}
+\subsection{¿Qué modelo genera el clasificador ZeroR?}
+\p{Como su nombre indica, es un clasificador sin reglas (ZeroR = ZeroRules), por lo que clasifica todas las instancias en una misma clase,
+concretamente en la clase mayoritaria (la clase con más instancias en los ejemplos supervisados).}
+\subsection{¿Cuál es el porcentaje de éxito de este modelo?}
+\p{Este modelo clasifica con éxito 150 instancias que corresponden con un 51.0204\% del total.}
+
+\subsection{¿Cómo se clasificaría la instancia ``Carmen Machi''?}
+\p{Lo clasificaría como ``+'', al igual que todas las instancias.}
+
+\section{Clasificando con J48 (C4.5)}
+\subsection{¿Cuántas hojas tiene el árbol generado con J48?}
+\p{El árbol generado con J48 tiene 20 hojas.}
+
+\subsection{¿Cuántas instancias del conjunto de entrenamiento clasifica bien?}
+\p{Clasifica bien 287 instancias.}
+
+\subsection{¿Qué porcentaje de instancias clasifica bien?}
+\p{Estas 287 instancias se correponden con un 97.619 \% del total.}
+
+\subsection{¿Cuántas instancias de cada tipo se han clasificado mal?}
+\p{En la siguiente matriz de confusión podemos observar que se han clasificado 4 instancias de \textit{a} (clase ``-'') como \textit{b} (clase ``+''),
+y 3 instancias de \textit{b} (clase ``+'') como \textit{a} (clase ``-''), sumando un total de 7 instancias mal clasificadas, que corresponde a un 2.381\% del total.}
+\begin{table}[h]
+	\centering
+	\renewcommand{\tablename}{Tabla}
+	\caption{Matriz de confusión J48}
+	\begin{tabular}{|c|c|l|}
+		\hline
+		a  & b   & \textless-- classified as \\ \hline
+		140 & 4  & a = - \\ \hline
+		3 & 147  & b = + \\ \hline
+	\end{tabular}
+	\end{table}
+\subsection{¿Cómo se clasificaría la instancia ``Carmen Machi''?}
+\p{El nombre ``Carmen Machi'' tiene los siguientes valores:}
+\begin{itemize}
+	\item \textbf{length:} 12
+	\item \textbf{even\_odd:} 0
+	\item \textbf{first\_char\_vowel:} 0
+	\item \textbf{consonants:} 7
+	\item \textbf{spaces:} 1
+	\item \textbf{dots:} 0
+	\item \textbf{words:} 2
+\end{itemize}
+\p{Lo que produce la clasificación:\\
+\textit{length <= 13 $\rightarrow$ consonants <= 7 $\rightarrow$
+length <= 12 $\rightarrow$ consonants > 6 $\rightarrow$ ``+''}.
+\\Es decir, la instancia ``Carmen Machi'' quedaría clasificada como clase ``+''.}
+
+\subsection{¿Elegirías este modelo o el generado por ID3? ¿Por qué?}
+\p{Elegiríamos este modelo, pues J48 clasifica bien más instancias (287) que ID3 (236).
+
+\subsection{¿Hemos encontrado una función exacta para generar las etiquetas? ¿Por qué?}
+\p{Esta función no es exacta, porque ni siquiera es capaz de clasisficar el 100\% de los datos de entrenamiento correctamente.}
+
+\section{Utilizando más atributos con J48 (C4.5)}
+\subsection{Volver a la pestaña de preproceso y seleccionar el filtro Filter/unsupervised/attribute/AddExpression para
+generar un nuevo atributo que calcule el número de vocales. ¿Cuál es la función que has programado en el filtro?}
+\p{Actualmente conocemos la longitud del nombre de cada instancia, así como el número de consonantes, espacios y puntos que contiene.
+Para calcular el número de vocales, nos valemos de estos atributos para generar una nueva exprisión. Esta expresión queda
+$vowels=length-consonants-spaces-dots$. La expresión tal cual la hemos introducido en el filtro es $a2-a5-a6-a7$.}
+\subsection{¿Podrías decir cuál es el rango de vocales más común en el fichero proporcionado?}
+\p{La media obtenida es de 4,643 por lo que el número de vocales más común está en torno a las 4 o 5 vocales por nombre.}
+\subsection{Anota el porcentaje de instancias bien clasificadas y la matriz de confusión.}
+\p{El clasficador J48 ha clasificado correctamente el 100\% de las instancias, un total de 294. De esta forma, la matriz de confusión queda:}
+\begin{table}[h]
+	\centering
+	\renewcommand{\tablename}{Tabla}
+	\caption{Matriz de confusión J48}
+	\begin{tabular}{|c|c|l|}
+		\hline
+		a  & b   & \textless-- classified as \\ \hline
+		144 & 0  & a = - \\ \hline
+		0  & 150 & b = + \\ \hline
+	\end{tabular}
+\end{table}
+\subsection{Haz click con el botón derecho del ratón en el modelo generado que aparece en Result list. Visualiza el árbol
+generado con Visualize Tree. ¿Qué indican los números que aparecen en las hojas?}
+\p{Los números de cada hoja indica el número de instancias que han sido clasificadas al llegar a dicha hoja. En este caso, se han clasificado
+150 instancias como clase ``+'' por tener cuatro vocales o menos, y se han clasificado 144 instancias como clase ``-'' por tener más de cuatro vocales.}
+\subsection{Ir a la pestaña Visualize. Hacer click en la gráfica que relaciona el atributo creado con la clase y aumentar el
+valor de Jitter. ¿Qué efecto tiene?}
+\p{Se muestran dos nubes de puntos diferenciadas en extremos opuestos de la gŕafica.}
+\subsection{Tras todos estos resultados, ¿qué características o cualidades crees que deben tener los atributos para
+maximizar el éxito de los algoritmos de aprendizaje automático?}
+\p{Los atributos de una instancia tienen que tener la máxima correlación posible con la clase en la que queremos clasificar misma. Asimismo, cuantos
+más atributos tenga una instancia más probabilidades hay de encontrar el atributo o atributos con mayor correlación que nos permitan generar el
+mejor clasificador posible.}
+
+
+\section{Balanceado de datos, selección de características y otros filtros}
+\subsection{¿Cuántos atributos de entrada tiene este fichero? ¿Cuántas instancias de entrenamiento?}
+\p{El fichero posee 15 atributos, de los cuales la entrada se determinará según cual sea nuestro objetivo. Si suponemos que nuestra tarea es crear un modelo predictorio de salarios, entonces habrá 14 atributos de entrada. Este data set posee 32.561 instancias.}
+\subsection{Ejecuta el clasificador J48. Selecciona en Test Options la opción “Cross-validation” ¿Qué resultados aparecen?}
+\p{Weka nos devuelve como resultado:}
+\begin{itemize}
+	\item \textbf{Información de ejecución:} Parámetros utilizados en la ejecución
+	\item \textbf{Modelo clasificador:} Modelo clasificador resultante tras la unión de resultados de la validación cruzada, con 564 hojas.
+	\item \textbf{Resumen: } Datos estadísticos sobre la clasidicación. Donde se han clasificado correctamente 28.071 instancias, que corresponden a un 86,2105\% del total de instancias.
+	\item \textbf{Matriz de confusión: } Datos sobre la clasificación entre las diferentes clases. Donde se han clasificado incorrectamente 4.490 instancias, un 13,7895\% del total de instancias.
+\end{itemize}
+
+\subsection{Ahora vamos a evaluar el clasificador solamente con las instancias que figuren en el fichero adult-test.arff.
+Para ello selecciona en Test Options la opción “Supplied test set”. ¿Qué resultados aparecen?}
+\p{Weka nos devuelve como resultado:}
+\begin{itemize}
+	\item \textbf{Información de ejecución:} Parámetros utilizados en la ejecución
+	\item \textbf{Modelo clasificador:} Modelo clasificador resultante tras la unión de resultados de la validación cruzada, con 564 hojas.
+	\item \textbf{Resumen: } Datos estadísticos sobre la clasidicación. Donde se han clasificado correctamente 13.977 instancias, que corresponden a un 85,8485\% del total de instancias.
+	\item \textbf{Matriz de confusión: } Datos sobre la clasificación entre las diferentes clases. Donde se han clasificado incorrectamente 2.304 instancias, un 14,1515\% del total de instancias.
+\end{itemize}
+
+\subsection{¿Por qué los resultados difieren al emplear la opción de cross-validation o la de supplied test set, si usamos el mismo clasificador?}
+\p{Usamos el mismo clasificador, pero no el mismo set de datos, pues cuando se realiza validación cruzada por 10 Folds,
+las instancias se parten en 10 grupos y se generan 10 modelos diferentes. De esta forma se generan datos estadísticos para
+cada modelo, obteniendo un modelo resultante como combinación de los anteriores.}
+\p{Por otro lado, la opción de supplied test set lo único que hace es construir el modelo
+normalmente con el set entero de datos, pero el testeo lo realiza con los datos que propocionas,
+que al ser el mismo fichero que el de los datos de entrenamiento equivale a utilizar la opción use training set en este caso.}
+
+\subsection{Vuelve a la pestaña Preprocess y haz click en el atributo de salida (la clase). ¿Qué proporción de datos hay
+de cada clase? ¿Crees que este porcentaje es apropiado para que un algoritmo de aprendizaje automático aprenda bien?}
+\p{Existen 7.841 instancias cuyo salario es mayor a 50k (24,0809\%) y 24.720 instancias cuyo
+salario es menor o igual a 50k (75,9190\%). Esto no es apropiado para que un algoritmo de aprendizaje automático aprenda bien,
+pues cuanto más desequilibrados sea el número de instancias de una clase, mayor sesgo va a tener el modelo resultante del
+aprendizaje del algoritmo.}
+
+\subsection{¿Qué ocurre con el atributo de salida? ¿Ha descendido el número de ejemplos de entrenamiento?}
+\p{Se ha generado un subdataset aleatorio con ejemplos de las clases, reduciendo instancias de la clase que tenia más instancias,
+y duplicando instancias que tenía la clase con menos instancias. Como resultado, se ha igulado el número de instancias de cada
+clase en el atributo de salida, obteniendo 16.280 instancias de cada clase, que corresponde a un 50\% del total. El número de
+ejemplos de entrenamiento ha descendido en una unidad, de 32.561 a 32.560.}
+\p{Este proceso en principio no debe de disminuir el número de instancias de los ejemplos de entrenamiento, pero ha tenido que
+eliminar una instancia (lo cual es admisible) para que el numero de estas sea par, y así poder hacer un equilibrio perfecto entre en número de las mismas
+repartidas entre las dos clases.}
+
+\subsection{Tras aplicar este filtro, evalúa de nuevo con cross-validation y supplied test set el algoritmo J48. ¿Qué resultado
+ofrece ahora el algoritmo? ¿Ha mejorado o empeorado?}
+\p{Weka nos devuelve como resultado para \textit{supplied test set} un 80,5663\% de instancias clasificadas correctamente, y un 87,1898\% de
+instancias bien clasificadas con \textit{cross-validation} con 10 Folds. Podemos observar que para este último los resultados han mejorado respecto a la clase no equilibrada,
+	pues como se ha mencionado anteriormente, aunque eliminemos algunos ejemplos de aprendizaje, el modelo resultante tiene menos sesgo que si utilizáramos
+la clase desequilibrada.}
+
+\subsection{Por último aplica el filtro de normalización unsupervised/instance/Normalize para los atributos numéricos.
+¿Qué resultados se obtienen?}
+\p{Se normalizan estos atributos, de esta forma en un mismo atributo todos sus valores rondarán entre 0 y 1, siendo 0 el valor mínimo y 1 el valor máximo del atributo.}
+
+\subsection{Después del procesamiento de datos que has realizado en este apartado, ¿crees que esto ayuda al proceso de
+aprendizaje? ¿Por qué?}
+\p{Sí, esto se debe a que algunos modelos (como las Redes de Neuronas) son modelos meramente matemáticos, por tanto, interesa que las entradas estén un mismo rango de valores. Es decir, no interesa tener dos
+atributos de los cuales uno tenga valores entre 500 y 1000, y otro de 1 a 5, pues puede complicar el proceso de aprendizaje. Al normalizar estos atributos, tienes como resultado
+valores que mantien una misma proporción, pero que están en un rango determinado.}
+
+\subsection{¿Cuál es el mejor resultado obtenido? ¿Por qué?}
+\p{Hemos ejecutado nuevamente el clasificador J48 con \textit{supplied test set} y con \textit{cross-validation}. Para el primero hemos
+conseguido clasificar bien el 89,3646\% de las instancias (frente al 80,5663\% anterior). En el caso del \textit{cross-validation} hemos
+clasificado correctamente el 84,807\% de las instancias, empeorando nuestro resultado anterior del 87,1898\%.}
+\p{El resultado ha mejorado para \textit{supplied test set} fente a \textit{cross-validation} porque este último, al realizar diez modelos para obtener el modelo definitivo, parece que
+en varias iteraciones ha cogido más de una vez las mismas instancias repetidas, lo que ha producido en alguna iteración un modelo érróneo que se ha propagado.}
+\end{document}

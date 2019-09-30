@@ -1,0 +1,167 @@
+\documentclass[10pt, spanish, pdftex]{../.memo/plantilla_memorias}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla de estilos para memorias de prácticas UC3M
+%			Universidad Carlos III de Madrid
+% Autor: Aitor Alonso Núñez
+% Última actualización: 14 de Noviembre de 2016
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Preámbulo %%%%%
+\usepackage{fancyhdr}		% Permite añadir encabezado y pie de página
+\usepackage{graphicx}		% Permite añadir imágenes
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lipsum}
+\usepackage[hidelinks]{hyperref}	% Ahora los elemento del índice actúan como enlaces, también se permite enlaces a internet
+\usepackage{nameref}				% Permite añadir etiquetas \label{nombre} a las que referenciar con \nameref{intro}
+\author{Aitor Alonso Núñez}
+
+
+%%%%% Co-autores y NIA %%%%%
+%%%%% Dejar corchetes {} en blanco si es necesario
+%%%%% Si el número de coautores está entre 3 y 4 usar estas opciones, en caso contrario comentarlas
+%\coautoresNumCuatrotrue
+%\coautoresCuatro{Compañero1 Apellido}{NIA 100XXXXXX}{Compañero2 Apellido}{NIA 100XXXXXX}{Compañero3 Apellido}{NIA 100XXXXXX}{Compañero4 Apellido}{NIA 100XXXXXX}
+
+%%%%% Si el número de coautores está entre 0 y 2 usar estas opciones, en caso contrario comentarlas
+% Dejar corchetes {} en blanco si es necesario
+\coautoresNumCuatrofalse
+\coautoresDos{Daniel Gak Anagrov}{NIA 100318133}{Gr. 83}
+
+%%%%% Añadir dirección de email en la portada (solo válido para ti y un compañero) %%%%%
+\correofalse
+%\correotrue
+%\emails{100346169alumnos.uc3m.es}{correo}
+
+%%%%% Datos básicos (titulación, asignatura, título del documento) %%%%%
+\datos{Grado en Ingeniería Informática}{Aprendizaje Automático}{Mario AI: Tutorial 3\\Experimentación múltiple}
+
+%%%%% Encabezado %%%%%
+\header
+
+%%%%% Pie de Página %%%%%
+\footer
+\pagestyle{fancy}
+
+\begin{document}
+%%%%% Portada %%%%%a
+\titleMain
+
+%%%%% Índice %%%%%
+\tableofcontents 	% Añadimos índice
+\newpage 			% Después del índice, le indicamos iniciar en una página nueva
+
+%%%%% CONTENIDO DEL DOCUMENTO %%%%%
+\section{Ejercicio 1: KnowledgeFlow}
+\subsection{Ejecutar el flujo de conocimiento. Para ello ejecutar la opción Start loading del nodo \texttt{Arff Loader}. Seleccionar
+la opción \texttt{Show Results} en los nodos \texttt{TextViewer}.\\a) ¿Qué se muestra en cada uno de ellos?}
+\p{En el nodo \texttt{TextViewer} que está unido al nodo \texttt{J48} se muestra el árbol creado por el clasificador J48.
+En el nodo \texttt{TextViewer} que está unido al nodo \texttt{Classifier PerformanceEvaluator} se muestra el porcentaje de instancias
+clasificadas correctamente y diversa información adicional como la matriz de confusión.}
+\p{Por último, en el nodo \texttt{GraphViewer}
+que está unido al nodo \texttt{J48} se muestra una lista con los árboles de decisión que ha generado cada uno de los \textit{folds}
+de la \textit{cross validation}. Si hacemos clic sobre un elemento de esta lista nos abre la representación gráfica del árbol
+de decisión, con las reglas que se aplican para clasificar en cada nodo.}
+
+\subsection{b) ¿Cuál es el porcentaje de instancias clasificadas correctamente?}
+\p{Se clasifican correctamente el 86,2105\% de las instancias (28.071 instancias bien clasificadas).}
+
+\subsection{Guardar el diagrama de flujo en formato .kfml como \texttt{e1-suppliedtestset.kfml}.\\
+c) ¿Cuál es la utilidad de crear flujos de conocimiento con esta interfaz de Weka?}
+\p{Con esta interfaz podemos visualizar las distintas fases por la que pasa el estudio y filtrado de los datos, y las fases que
+producen el aprendizaje. Si no se utilzara esta herramienta, habría que estar repitiendo  
+análisis, fitros, preprocesados y construcciones de modelos en el explorador de weka, mientas que al crear diferentes flujos de
+conocimiento, defines lineas de trabajo reutilizables permitiéndote constuir un árbol de flujos complejo, pero fácil de gestionar.}
+
+\section{Ejercicio 2: Experimenter}
+\p{Tras la ejecución del test sonre los resultado del análisis de los datos se ha obtenido la siguiente salida:}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|r|cccccc|}
+	\hline
+	\multicolumn{1}{|l|}{Dataset}                           & J48     & PART    & ZeroR   & NaiveBayes & IbK1    & IbK3    & IbK7    \\ \hline
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr}                 & 100.00  & 100.00  & 28.80 * & 99.40 *    & 99.51 * & 98.79 * & 98.20 * \\
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr\_Selec}          & 99.70   & 99.52   & 28.80 * & 98.67 *    & 99.35   & 98.99 * & 98.48 * \\
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr\_noObs}          & 100.00  & 100.00  & 28.80 * & 99.49 *    & 99.79   & 99.52 * & 99.55 * \\
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr\_noObs\_noEva}   & 100.00  & 100.00  & 28.80 * & 99.00 *    & 99.96   & 99.42 * & 99.14 * \\
+	\multicolumn{1}{|l|}{T3HumanAgent\_Discr}               & 99.90   & 99.90   & 25.00 * & 98.89 *    & 99.20 * & 98.48 * & 96.68 * \\
+	\multicolumn{1}{|l|}{T3HumanAgent\_Discr\_Selec}        & 99.40   & 99.40   & 25.00 * & 98.55 *    & 99.05   & 98.67   & 98.23 * \\
+	\multicolumn{1}{|l|}{T3HumanAgent\_Discr\_noObs}        & 99.90   & 99.90   & 25.00 * & 99.20 *    & 99.30 * & 99.55   & 99.40   \\
+	\multicolumn{1}{|l|}{T3HumanAgent\_Discr\_noObs\_noEva} & 99.90   & 99.90   & 25.00 * & 99.89      & 99.39   & 99.25 * & 99.14 * \\ \hline
+	\multicolumn{1}{r|}{}                                   & (v/ /*) & (0/8/0) & (0/0/8) & (0/1/7)    & (0/5/3) & (0/2/6) & (0/1/7) \\ \cline{2-8} 
+	\end{tabular}
+	\renewcommand{\tablename}{Tabla}
+	\caption{\label{tabla1}Test Output: Analysis result}
+\end{table}
+
+\subsection{a) ¿Hay algún agente que parezca más adecuado?}
+\p{Parece que el agente \textit{T3BotAgent} tiene un rendimiento mejor que el humano \textit{T3HumanAgent}, pero la diferencia
+es irrisoria.}
+
+\subsection{b) ¿Hay algún conjunto de datos particular que parezca más adecuado?}
+\p{Parece ser que los mejores resultados se obtienen en los conjuntos \textit{noObs} y \textit{noObs\_noEva} con independencia
+del algoritmo utilizado.}
+
+\subsection{c) ¿Qué algoritmo parece más adecuado?}
+\p{Puesto que en la mayoría de casos se ha empeorado respecto al caso base (utilizando J48), diríamos que el algoritmo más
+adecuado es pues J48. Asimismo le sigue muy muy de cerca PART, solo habiendo empeorado mínimamente para el conjunto de datos
+\textit{T3BotAgent\_Discr\_Selec}.}
+
+\subsection{d) ¿Son los resultados del mejor algoritmo mucho mejores que los del resto?}
+\p{Con salvedad de los resultados obtenidos con ZeroR, que son bastante malos en comparación al resto, los resultados obtenidos
+con el mejor algoritmo (J48) no son mucho mejores que los del resto.}
+
+\subsection{e) Cambiar el criterio de comparación y comparar los resultados. ¿Los resultados guardan relación con los
+proporcionados en \textit{Percent\_correct}? ¿Qué otra métrica habéis seleccionado? ¿Por qué?}
+\p{Tras probar varios criterios de comparación, podemos asegurar que aquellos que tienen que ver con el número o porcentaje
+de instancias clasificadas correctamente o erróneamente guardan relación con los del comparador \textit{Percent\_correct},
+ya que este se basa en el número de instancias clasificadas correctamente para comparar los resultados.}
+\p{Entre los otros filtros que hemos probado se encuentra \textit{UserCPU\_Time\_testing}, ya que consideramos que una parte
+muy imporante de un algoritmo de aprendizaje automático es el tiempo utilizado para clasificar las instancias y su complejidad
+temporal. Hemos descubierto así que el algoritmo perezoso IbK es por norma más rápido que el resto.}
+
+\subsection{f) Generar con el \textit{Explorer} de Weka los modelos que te parezcan más adecuados con los datos que
+correspondan. ¿Cuales habéis generado? ¿Son estos modelos tan adecuados como parecían? ¿Por qué?}
+\p{Hemos partido del modelo \textit{Selec} que se nos indicó que creáramos y hemos generado y evaluado los siguientes modelos:}
+\begin{itemize}
+	\item El modelo \textit{Selec} base
+	\item Un modelo que no contiene la información observada a futuro
+	\item Un modelo que no contiene ninguna observación de \texttt{mergeObservation()}
+	\item Un modelo que combina los dos anteriores
+\end{itemize}
+\p{Tras la evaluación, hemos obtneido los siguientes resultados:}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|r|cccccc|}
+	\hline
+	\multicolumn{1}{|l|}{Dataset}                                & J48     & PART    & ZeroR   & NaiveBayes & IbK1    & IbK3    & IbK7    \\ \hline
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr\_Selec}               & 99.70   & 99.52   & 28.80 * & 98.67 *    & 99.35   & 98.99 * & 98.48 * \\
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr\_Selec\_noFut}        & 99.70   & 99.52   & 28.80 * & 99.45      & 99.44   & 98.90 * & 97.78 * \\
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr\_Selec\_noObs}        & 99.70   & 99.70   & 28.80 * & 98.79 *    & 99.66   & 99.55   & 98.91 * \\
+	\multicolumn{1}{|l|}{T3BotAgent\_Discr\_Selec\_noObs\_noFut} & 99.70   & 99.70   & 28.80 * & 99.70      & 99.67   & 99.41   & 98.72 * \\ \hline
+	\multicolumn{1}{r|}{}                                        & (v/ /*) & (0/4/0) & (0/0/4) & (0/2/2)    & (0/4/0) & (0/2/2) & (0/0/4) \\ \cline{2-8} 
+	\end{tabular}
+	\renewcommand{\tablename}{Tabla}
+	\caption{Test Output 2: Analysis result}
+\end{table}
+\p{Como se puede observar, no mejora nada el análisis, aunque mejora el rendimiento de otros algoritmos (disminuyen frente a J48
+pero menos) si se compara con los resultados obtenidos anteriormente, recogidos en la tabla 1 \nameref{tabla1}.}
+\p{Creemos que estos modelos son adecuados porque obvian la posición X e Y de Mario, que aunque con ella se consigue un 100\% de
+aciertos, es debido a que se está produciendo un sobreajuste porque el algoritmo está aprendiendo el mapa y no realmente a jugar.}
+
+\subsection{g) Elegir un modelo final y justificar la respuesta.}
+\p{Si tuviéramos que usar J48 y a la vista de los resultados arrojados, probablemente nos quedaríamos con el modelo que definimos
+inicialmente, \textit{T3BotAgent\_Discr\_Selec}. Sin embargo, Nos gustaría tomar información adicional en las instancias de
+entrenamiento.}
+\p{No se ha incluido porque para este tutorial hemos seguido fielmente las exigencias del enunciado, incluyendo en la toma de
+ejemplos solo los datos solicitados en el tutorial 1 y 3. Si de nosotros dependiera, tendríamos en cuenta también las teclas que
+pulsa Mario o si este está en el suelo o en medio de un salto, por ejemplo, además de ciertas transformaciones extra con los datos
+antes de escribir a los ejemplos.}
+
+\subsection{h) ¿Por qué o para qué os parece adecuado el uso del \textit{Experimenter} de Weka?}
+\p{El experimenter nos permite trabajar con varios set de datos distintos, así como con distintos algoritmos de aprendizaje
+automático que nos ayuden a clasificar las instancias. Esto nos permite conocer qué sets son más representativos para el parendizaje
+o para qué algoritmo de aprendizaje, así como qué algoritmo u algoritmos son los más útiles o eficientes dados nuestro set de datos.}
+
+\end{document}

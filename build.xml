@@ -1,0 +1,13 @@
+<project default="compile">
+    <target name="compile">
+        <mkdir dir="bin"/>
+        <javac srcdir="src" destdir="src" encoding="ISO-8859-1" debug="on" debuglevel="lines,vars,source" includeantruntime="true">
+		<classpath>
+      			<pathelement path="${classpath}"/>
+      			<pathelement location="lib/asm-all-3.3.jar"/>
+      			<pathelement location="lib/jdom.jar"/>
+      			<pathelement location="lib/junit-4.8.2.jar"/>
+		</classpath>
+	</javac>
+    </target>
+</project>
